@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta http-equiv="refresh" content="2">
+  </head>
+  <body>
+    <h1>Sillicon Manufacturing System</h1>
+    <h2>Sillicon Production System</h2>  
+    <!-- {{views}} -->
+    <table border='1'>
+      <tr>
+        <th>ph Sensor (pH))</th>
+        <th>Flow Sensor (lpm)</th>
+        <th>Liqui Level Sensor (m)</th>
+        <th>Liquid Valve Control</th>
+      </tr>
+      <tr>
+        {% for view in views1 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+
+        {% for view in views_act1 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h2>Power System</h2>  
+    <!-- {{views}} -->
+    <table border='1'>
+      <tr>
+        <th>Voltage Sensor (V)</th>
+        <th>Current Sensor (A)</th>
+        <th>Flame Detector (nano meters)</th>
+        <th>Circuit Breaker (0/1)</th>
+      </tr>
+      <tr>
+        {% for view in views2 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+
+        {% for view in views_act2 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h2>Central Air Conditioning System</h2>  
+    <!-- {{views}} -->
+    <table border='1'>
+      <tr>
+        <th>Temperature Sensor (degree Celcius)</th>
+        <th>Humidity Sensor (%)</th>
+        <th>CO2 Sensor (ppm)</th>
+        <th>Variable Speed Drives (rpm)</th>
+      </tr>
+      <tr>
+        {% for view in views3 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        
+        {% for view in views_act3 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+  </body>
+</html>
