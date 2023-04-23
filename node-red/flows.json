@@ -1,0 +1,778 @@
+[
+    {
+        "id": "65cced3f52bc239e",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "179d262fc9692c59",
+        "type": "inject",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "8d779544cc5ee7b1",
+                "8398048f61e4ac43",
+                "241a48c58e482b1e"
+            ]
+        ]
+    },
+    {
+        "id": "a6ae95c996995d5a",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 580,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8d779544cc5ee7b1",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Temperatur",
+        "low": "30",
+        "high": "150",
+        "inte": "true",
+        "property": "payload",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "a6ae95c996995d5a"
+            ]
+        ]
+    },
+    {
+        "id": "61c0b6eebee0cf2d",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "c5c4612a0ef44f38"
+            ]
+        ]
+    },
+    {
+        "id": "c5c4612a0ef44f38",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "241a48c58e482b1e",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Friksi",
+        "low": "5",
+        "high": "80",
+        "inte": "true",
+        "property": "payload",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "3d1332af692b0581"
+            ]
+        ]
+    },
+    {
+        "id": "8398048f61e4ac43",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Daya Listrik",
+        "low": "1000",
+        "high": "1500",
+        "inte": "true",
+        "property": "payload",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "1ed0e147fa84c96f"
+            ]
+        ]
+    },
+    {
+        "id": "3d1332af692b0581",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1ed0e147fa84c96f",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 550,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "97ba6c0aed6fd163",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "d9e57f23e47ede4f"
+            ]
+        ]
+    },
+    {
+        "id": "cc7a86b256d28c1a",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "6b67e97540ef8025"
+            ]
+        ]
+    },
+    {
+        "id": "d9e57f23e47ede4f",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6b67e97540ef8025",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "705f37cd2938a4aa",
+        "type": "inject",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 850,
+        "y": 180,
+        "wires": [
+            [
+                "3eef2738c60c97c8",
+                "95c286a4cba3db56",
+                "2099539eaa8b04ee"
+            ]
+        ]
+    },
+    {
+        "id": "ddec3da0f15d917e",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1280,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3eef2738c60c97c8",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Temperatur",
+        "low": "30",
+        "high": "150",
+        "inte": "true",
+        "property": "payload",
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            [
+                "ddec3da0f15d917e"
+            ]
+        ]
+    },
+    {
+        "id": "f3fd200be2931b8d",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 900,
+        "y": 320,
+        "wires": [
+            [
+                "28635d984e6e0f9e"
+            ]
+        ]
+    },
+    {
+        "id": "28635d984e6e0f9e",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2099539eaa8b04ee",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Friksi",
+        "low": "5",
+        "high": "80",
+        "inte": "true",
+        "property": "payload",
+        "x": 1030,
+        "y": 180,
+        "wires": [
+            [
+                "0a62ce6cfc778212"
+            ]
+        ]
+    },
+    {
+        "id": "95c286a4cba3db56",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Daya Listrik",
+        "low": "1000",
+        "high": "1500",
+        "inte": "true",
+        "property": "payload",
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "9b80cd0df658ed54"
+            ]
+        ]
+    },
+    {
+        "id": "0a62ce6cfc778212",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1260,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9b80cd0df658ed54",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1250,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0ebf827adea81ede",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 890,
+        "y": 380,
+        "wires": [
+            [
+                "c9b83ea8f7ce383f"
+            ]
+        ]
+    },
+    {
+        "id": "b6e12d8a7e30d3c8",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 890,
+        "y": 440,
+        "wires": [
+            [
+                "f0bda7d8a85241f4"
+            ]
+        ]
+    },
+    {
+        "id": "c9b83ea8f7ce383f",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 46",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f0bda7d8a85241f4",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 47",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "293188bc542b781c",
+        "type": "inject",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1530,
+        "y": 180,
+        "wires": [
+            [
+                "983f02a6b8846042",
+                "13076377a0e67e31",
+                "1dec91a489559de1"
+            ]
+        ]
+    },
+    {
+        "id": "d522cc4a4fdd0567",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1960,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "983f02a6b8846042",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Temperatur",
+        "low": "30",
+        "high": "150",
+        "inte": "true",
+        "property": "payload",
+        "x": 1730,
+        "y": 120,
+        "wires": [
+            [
+                "d522cc4a4fdd0567"
+            ]
+        ]
+    },
+    {
+        "id": "632fdf1710f15bad",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/temp3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1580,
+        "y": 320,
+        "wires": [
+            [
+                "414d060fc780b786"
+            ]
+        ]
+    },
+    {
+        "id": "414d060fc780b786",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 48",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1dec91a489559de1",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Friksi",
+        "low": "5",
+        "high": "80",
+        "inte": "true",
+        "property": "payload",
+        "x": 1710,
+        "y": 180,
+        "wires": [
+            [
+                "19187d58955bb8a5"
+            ]
+        ]
+    },
+    {
+        "id": "13076377a0e67e31",
+        "type": "random",
+        "z": "65cced3f52bc239e",
+        "name": "Sensor Daya Listrik",
+        "low": "1000",
+        "high": "1500",
+        "inte": "true",
+        "property": "payload",
+        "x": 1730,
+        "y": 240,
+        "wires": [
+            [
+                "4bed5eb8bb6117c1"
+            ]
+        ]
+    },
+    {
+        "id": "19187d58955bb8a5",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1940,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "4bed5eb8bb6117c1",
+        "type": "mqtt out",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1930,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "952363f174a2fd83",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/frik3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1570,
+        "y": 380,
+        "wires": [
+            [
+                "3fabb0236c166584"
+            ]
+        ]
+    },
+    {
+        "id": "c16cbb5071c9f911",
+        "type": "mqtt in",
+        "z": "65cced3f52bc239e",
+        "name": "",
+        "topic": "uts/dl3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "727660ac399984c1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1570,
+        "y": 440,
+        "wires": [
+            [
+                "5e92e3471f517fed"
+            ]
+        ]
+    },
+    {
+        "id": "3fabb0236c166584",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 49",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5e92e3471f517fed",
+        "type": "debug",
+        "z": "65cced3f52bc239e",
+        "name": "debug 50",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "727660ac399984c1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
