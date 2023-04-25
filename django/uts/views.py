@@ -186,19 +186,19 @@ def on_message_dl3(client, userdata, msg):
     return Response({"value": msg.payload.decode('utf-8')})
 
 
-client = mqtt.Client("uts")
-client.message_callback_add('uts/temp', on_message_temp)
-client.message_callback_add('uts/frik', on_message_frik)
-client.message_callback_add('uts/dl', on_message_dl)
+client = mqtt.Client("sms")
+client.message_callback_add('sms/spp/ps', on_message_temp)
+client.message_callback_add('sms/spp/fs', on_message_frik)
+client.message_callback_add('sms/spp/lls', on_message_dl)
 
-client.message_callback_add('uts/temp2', on_message_temp2)
-client.message_callback_add('uts/frik2', on_message_frik2)
-client.message_callback_add('uts/dl2', on_message_dl2)
+client.message_callback_add('sms/ps/vs', on_message_temp2)
+client.message_callback_add('sms/ps/cs', on_message_frik2)
+client.message_callback_add('sms/ps/fd', on_message_dl2)
 
-client.message_callback_add('uts/temp3', on_message_temp3)
-client.message_callback_add('uts/frik3', on_message_frik3)
-client.message_callback_add('uts/dl3', on_message_dl3)
+client.message_callback_add('sms/ac/ts', on_message_temp3)
+client.message_callback_add('sms/ac/hs', on_message_frik3)
+client.message_callback_add('sms/ac/co2', on_message_dl3)
 
 client.connect('localhost', 1883)
 client.loop_start()
-client.subscribe('uts/#')
+client.subscribe('sms/#')
